@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>balraj mahto</h2>
+    <button id="stop">stop</button>
+
+</body>
+<script>
+    const sayBalraj= function(){
+        document.querySelector('#stop').innerHTML='say hii'
+    }
+    //setTimeout(sayBalraj,3000)
+    const clearMe=setTimeout(sayBalraj,3000)
+    
+
+    document.querySelector('#stop').addEventListener('click',function(){
+        clearTimeout(clearMe)
+        console.log("STOP")
+
+    })
+</script>
+
+</html>

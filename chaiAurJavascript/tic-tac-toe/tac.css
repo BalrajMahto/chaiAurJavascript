@@ -1,0 +1,216 @@
+/* General styling */
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #63e2eb, #e161ea);
+    margin: 0;
+}
+
+h1 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* Game container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+/* Box styling */
+.box {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: linear-gradient(to bottom, #ffeaa7, #fdcb6e);
+    border: 2px solid #232525;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    color: #c7ced0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Add unique background colors for the boxes */
+.box:nth-child(odd) {
+    background-color: linear-gradient(to bottom, #00cec9, #0984e3);
+}
+
+.box:nth-child(even) {
+    background-color: linear-gradient(to bottom, #ffccbc, #ffd700);
+}
+
+.box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.box:disabled {
+    cursor: not-allowed;
+    background-color: #f9fafb;
+    color: #ecf0f1;
+    opacity: 0.7;
+}
+
+/* Reset Button */
+#reset {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #1977fa;
+    color: rgb(234, 227, 225);
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+#reset:hover {
+    background-color: #f32320;
+}
+
+.msg-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(104, 234, 244);
+    border: 2px solid #67a5ebeb;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    width: 80%;
+    max-width: 600px;
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.msg-container p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #f5fafb;
+    text-align: center;
+}
+
+#new-Game {
+    padding: 12px 25px;
+    background-color: #0099b8;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+#new-Game:hover {
+    background-color: #3434f3;
+}
+
+/* Hide message container by default */
+.hide {
+    display: none;
+}
+
+/* Responsive for smaller devices */
+@media (max-width: 600px) {
+    .game {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+    }
+
+    .box {
+        width: 80px;
+        height: 80px;
+        font-size: 1.5rem;
+    }
+
+    #reset, #new-Game {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+}
+
+/* End Game Pop-up */
+.end-game-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.end-game-popup-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
+
+.end-game-popup-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.end-game-popup-stats {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.end-game-popup-button {
+    padding: 12px 25px;
+    background-color: #0984e3;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.end-game-popup-button:hover {
+    background-color: #74b9ff;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+</head>
+<body>
+    <ul class="language">
+        <li>apple</li>
+    </ul>
+</body>
+<script>
+    // Add items
+    function addLang(languageName) {
+        const li = document.createElement('li');
+        li.textContent = languageName;  // Use textContent instead of innerHTML for plain text
+        document.querySelector('.language').appendChild(li);
+    }
+    addLang("hey");
+
+    function optlang(languageName) {
+        const li = document.createElement('li');
+        li.textContent = languageName;  // Corrected variable name
+        document.querySelector('.language').appendChild(li);
+    }
+    optlang('golang');
+    optlang('golang');
+    optlang('golang');
+
+    // Edit items
+    const secondLang = document.querySelector('li:nth-child(1)'); // Select the first item
+    if (secondLang) {
+        const new1 = document.createElement('li'); // Corrected element creation
+        new1.textContent = "Python";
+        secondLang.replaceWith(new1);
+    }
+
+    const firstLang = document.querySelector('li:first-child'); // This will now point to the new 'Python' item
+    if (firstLang) {
+        firstLang.outerHTML = '<li>hello</li>';
+    }
+
+    // Remove
+    const lastLang = document.querySelector('li:last-child');
+    if (lastLang) {
+        lastLang.remove();
+    }
+</script>
+</html>
